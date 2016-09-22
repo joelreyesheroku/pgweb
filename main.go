@@ -8,11 +8,11 @@ import (
 
 	"github.com/gin-gonic/gin"
 
-	"github.com/sosedoff/pgweb/pkg/api"
-	"github.com/sosedoff/pgweb/pkg/client"
-	"github.com/sosedoff/pgweb/pkg/command"
-	"github.com/sosedoff/pgweb/pkg/connection"
-	"github.com/sosedoff/pgweb/pkg/util"
+	"github.com/herokumx/pgweb/api"
+	"github.com/herokumx/pgweb/pkg/client"
+	"github.com/herokumx/pgweb/pkg/command"
+	"github.com/herokumx/pgweb/pkg/connection"
+	"github.com/herokumx/pgweb/pkg/util"
 )
 
 var options command.Options
