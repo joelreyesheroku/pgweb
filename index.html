@@ -1,98 +1,167 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-us">
   <head>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'><link type="text/css" rel="stylesheet" href="styles/all.css" />  
-    <meta name="viewport" content="width=device-width, minimal-ui">
-    <script src="scripts/jquery.min.js" type="text/javascript"></script>
-    <title>Pgweb - Cross-platform client for PostgreSQL databases</title>
+    <meta charset="UTF-8">
+    <title>Pgweb for Heroku Premium Postgres by herokumx</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
   </head>
   <body>
-    <div id="wrapper" class="homePage">
-      <div class="inner">
-        <header>
-          <nav>
-            <div>
-              <a href="#features">Features</a>
-              <a href="https://github.com/sosedoff/pgweb/releases/latest" target="_blank">Downloads</a>
-            </div>
-            <div>
-              <a href="https://github.com/sosedoff/pgweb"><i class="fa fa-github"></i> View on Github</a>
-            </div>
-          </nav>
-        </header>  
+    <section class="page-header">
+      <h1 class="project-name">Pgweb for Heroku Premium Postgres</h1>
+      <h2 class="project-tagline">Cross-platform client for PostgreSQL Premium databases</h2>
+      <a href="https://github.com/herokumx/pgweb" class="btn">View on GitHub</a>
+      <a href="https://github.com/herokumx/pgweb/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/herokumx/pgweb/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
 
-        <main role="main"> 
-          <section class="top">
-            <aside>
-              <h1 class="logo"><a href="/"><i class="fa fa-database"></i> pgweb</a></h1>
-              <h2>Cross-platform client for PostgreSQL databases</h2>
-            </aside>
-            <div class="preview"></div>
-          </section>
+    <section class="main-content">
+      <h1>
+<a id="pgweb" class="anchor" href="#pgweb" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>pgweb</h1>
 
-          <section class="supported-os">
-            <div class="os">
-              <div class="osx">OSX</div>
-              <div class="linux">Linux</div>
-              <div class="windows">Windows</div>
-            </div>
-          </section>
+<p>Web-based PostgreSQL database browser written in Go...but modified to deploy Heroku Postgres Premium-0 (for later use in a Heroku Private Spaces's PG instance)</p>
 
-          <section>
-            <aside>
-              <h1 id="features">Features</h1>
-            </aside>
-            <div class="features cols-3">
-              <div class="col">
-                <h3>Cross-platform</h3>
-                <p>Pgweb runs on OSX, Linux and Windows operating systems without a hustle. Binaries are cross-complied with Go and available for 32/64 bit systems. You can even run it on RaspberryPi</p>
-              </div>
-              <div class="col">
-                <h3>Easy to Install</h3>
-                <p>Pgweb comes as a single binary file that's ready to go. You can install it manually, via Docker or using Homebrew on OSX which is updated regularly and is super convenient.</p>
-              </div>
-              <div class="col">
-                <h3>Zero Dependencies</h3>
-                <p>No need to install anything on your machines or services. Just download and run. To get started Pgweb just needs a browser and a PostgreSQL server to connect to.</p>
-              </div>
-              <div class="col">
-                <h3>PostgreSQL 9.1+</h3>
-                <p>Most versions of PostgreSQL are supported, starting with official support for 9.1. Older versions could also be compatible but not guaranteed.</p>
-              </div>
-              <div class="col">
-                <h3>Simple and Clean</h3>
-                <p>Pgweb was designed to be very simple and clean UI to browse database tables or run and analyze SQL queries. Export query results or table rows to CSV/JSON/XML. Multiple schemas are supported. Records query history.</p>
-              </div>
-              <div class="col">
-                <h3>Flexible Sessions</h3>
-                <p>Pgweb can work with any local or remote PostgreSQL server (Heroku supported) as well as any server behind a firewall by using native SSH tunnelling with passwords or ssh keys. Quick-connect with server bookmarks.</p>
-              </div>
-            </div>
-          </section>
+<p><a href="https://github.com/baliles/pgweb/releases"><img src="https://img.shields.io/github/release/sosedoff/pgweb.svg?label=Release" alt="Release"></a>
+<a href="https://travis-ci.org/sosedoff/pgweb"><img src="https://img.shields.io/travis/sosedoff/pgweb.svg?label=Linux" alt="Linux Build"></a>
+<a href="https://ci.appveyor.com/project/sosedoff/pgweb"><img src="https://img.shields.io/appveyor/ci/sosedoff/pgweb/master.svg?label=Windows" alt="Windows Build"></a></p>
 
-          <section>
-            <div class="features">
-              <a href="https://github.com/sosedoff/pgweb" class="download">Download Pgweb</a>
-            </div>
-          </section>
-        </main>
-      </div>
+<h2>
+<a id="overview" class="anchor" href="#overview" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Overview</h2>
 
-      <footer>
-        &copy; 2014-2016 <a href="http://sosedoff.com?from=pgweb">Dan Sosedoff</a>
+<p>Pgweb is a web-based database browser for PostgreSQL, written in Go and works
+on OSX, Linux and Windows machines. Main idea behind using Go for backend development
+is to utilize ability of the compiler to produce zero-dependency binaries for 
+multiple platforms. Pgweb was created as an attempt to build very simple and portable
+application to work with local or remote PostgreSQL databases.</p>
+
+<p><a href="SCREENS.md">See application screenshots</a></p>
+
+<h2>
+<a id="features" class="anchor" href="#features" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Features</h2>
+
+<ul>
+<li>Cross-platform support OSX/Linux/Windows 32/64-bit</li>
+<li>Simple installation (distributed as a single binary)</li>
+<li>Zero dependencies</li>
+<li>Works with PostgreSQL 9.1+</li>
+<li>SSH Connections</li>
+<li>Multiple database sessions</li>
+<li>Simple database browser</li>
+<li>Execute and analyze custom SQL queries</li>
+<li>Table and query data export to CSV/JSON/XML</li>
+<li>Query history</li>
+<li>Server bookmarks</li>
+</ul>
+
+<p>Visit <a href="https://github.com/baliles/pgweb/pgweb/wiki">WIKI</a> for more details</p>
+
+<h2>
+<a id="demo" class="anchor" href="#demo" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Demo</h2>
+
+<p>Visit <a href="https://poc-pgweb.herokuapp.com">https://poc-pgweb.herokuapp.com</a> to see pgweb in action.</p>
+
+<h2>
+<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installation</h2>
+
+<p><a href="https://github.com/sosedoff/pgweb/releases">Precompiled binaries</a> for supported 
+operating systems are available.</p>
+
+<p><a href="https://github.com/sosedoff/pgweb/wiki/Installation">More installation options</a></p>
+
+<h2>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Usage</h2>
+
+<p>Start server:</p>
+
+<pre><code>pgweb
+</code></pre>
+
+<p>You can also provide connection flags:</p>
+
+<pre><code>pgweb --host localhost --user myuser --db mydb
+</code></pre>
+
+<p>Connection URL scheme is also supported:</p>
+
+<pre><code>pgweb --url postgres://user:password@host:port/database?sslmode=[mode]
+</code></pre>
+
+<h3>
+<a id="multiple-database-sessions" class="anchor" href="#multiple-database-sessions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Multiple database sessions</h3>
+
+<p>To enable multiple database sessions in pgweb, start the server with:</p>
+
+<pre><code>pgweb --sessions
+</code></pre>
+
+<p>Or set environment variable:</p>
+
+<pre><code>SESSIONS=1 pgweb
+</code></pre>
+
+<h2>
+<a id="deploy-on-heroku" class="anchor" href="#deploy-on-heroku" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Deploy on Heroku</h2>
+
+<p><a href="https://heroku.com/deploy?template=https://github.com/sosedoff/pgweb"><img src="https://www.herokucdn.com/deploy/button.svg" alt="Heroku Deploy"></a></p>
+
+<h2>
+<a id="testing" class="anchor" href="#testing" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Testing</h2>
+
+<p>Before running tests, make sure you have PostgreSQL server running on <code>localhost:5432</code>
+interface. Also, you must have <code>postgres</code> user that could create new databases
+in your local environment. Pgweb server should not be running at the same time.</p>
+
+<p>Execute test suite:</p>
+
+<pre><code>make test
+</code></pre>
+
+<p>If you're using Docker locally, you might also run pgweb test suite against
+all supported PostgreSQL version with a single command:</p>
+
+<pre><code>make test-all
+</code></pre>
+
+<h2>
+<a id="contribute" class="anchor" href="#contribute" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Contribute</h2>
+
+<ul>
+<li>Fork this repository</li>
+<li>Create a new feature branch for a new functionality or bugfix</li>
+<li>Commit your changes</li>
+<li>Execute test suite</li>
+<li>Push your code and open a new pull request</li>
+<li>Use <a href="https://github.com/sosedoff/pgweb/issues">issues</a> for any questions</li>
+<li>Check <a href="https://github.com/sosedoff/pgweb/wiki">wiki</a> for extra documentation</li>
+</ul>
+
+<h2>
+<a id="contact" class="anchor" href="#contact" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Contact</h2>
+
+<ul>
+<li>Dan Sosedoff</li>
+<li><a href="mailto:dan.sosedoff@gmail.com">dan.sosedoff@gmail.com</a></li>
+<li><a href="http://twitter.com/sosedoff">http://twitter.com/sosedoff</a></li>
+</ul>
+
+<h2>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>License</h2>
+
+<p>The MIT License (MIT)</p>
+
+<p>Copyright (c) 2014-2016 Dan Sosedoff, <a href="mailto:dan.sosedoff@gmail.com">dan.sosedoff@gmail.com</a></p>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/herokumx/pgweb">Pgweb for Heroku Premium Postgres</a> is maintained by <a href="https://github.com/herokumx">herokumx</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
       </footer>
 
-      <script>
-        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    </section>
 
-        ga('create', 'UA-6798056-5', 'auto');
-        ga('send', 'pageview');
-
-      </script>
-    </div>
+  
   </body>
 </html>
