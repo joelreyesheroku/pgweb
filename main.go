@@ -8,7 +8,7 @@ import (
 
 	"github.com/gin-gonic/gin"
 
-	"github.com/sosedoff/pgweb/api"
+	"github.com/sosedoff/pgweb/pkg/api"
 	"github.com/sosedoff/pgweb/pkg/client"
 	"github.com/sosedoff/pgweb/pkg/command"
 	"github.com/sosedoff/pgweb/pkg/connection"
