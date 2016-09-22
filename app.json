@@ -12,7 +12,7 @@
     "frontend"
   ],
   "addons": [
-    "heroku-postgresql:private-0"
+    "heroku-postgresql:premium-0"
   ],
   "env": {
     "AUTH_USER": {
