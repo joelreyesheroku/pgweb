@@ -22,35 +22,40 @@ PGWeb is a web-based database browser for PostgreSQL, written in Go and works on
 - Query history
 - Server bookmarks
 
-## Installation: Deploy on Heroku to Private Spaces
+## Easy Deploy: 
+
+Simply click the Heroku Button and we'll provision a Heroku Postgres Private-0 database instance and attach it to this app. We will also set a default `AUTH_USER` and `AUTH_PAS`S which you can change through the CONFIG_VAR of the deployed app. 
 
 [![Heroku Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy?template=https://github.com/herokumx/pgweb)
+
+## Installation: Manual Deploy on Heroku with Private-Postgres
 
 Make sure you have PostgreSQL server running on the same Heroku App that you're deploying this to (you can add Postgres after you've deployed this if you're putting the Cart before the proverbial Horse ie `yourPrivateSpaces_postgresserver.herokuapp.com:5432`
 
 ###Postgres for Private Spaces:
 
-Provisioning Name	should be one of the following:      
+Provisioning Name	should be one of the following:
+```
 - heroku-postgresql:private-0
 - heroku-postgresql:private-2	
 - heroku-postgresql:private-4
 - heroku-postgresql:private-5	
 - heroku-postgresql:private-6
 - heroku-postgresql:private-7	
+```
 
-## Configure it for Heroku Private-Postgres
+## Manual Config for Heroku Private-Postgres
 
 Make sure you've configured (or added manually) the two Heroku Config VARs below: 
 
 `AUTH_USER = username` is the one you'll use to hit this app, not your Private-Postgres username
-
 `AUTH_PASS = password` is the one you'll use to hit this app, not your Private-Postgres password
 
 Your Procfile (create blank file called Procfile, no extension) will look like this:
 
 `web: pgweb --url=$DATABASE_URL --listen=$PORT --bind=0.0.0.0 --auth-user=$AUTH_USER --auth-pass=$AUTH_PASS`
 
-## Testing
+## Deploy to Heroku and Test
 
 Before running tests, make sure you have PostgreSQL server running on the same Heroku App that you're deploying this to (you can add Postgres after you've deployed this if you're putting the Cart before the proverbial Horse 
 
