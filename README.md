@@ -1,21 +1,22 @@
-# pgweb
+# PGWeb for Heroku Private Spaces Postgres
 
-Web-based PostgreSQL database browser written in Go for Heroku Private Spaces
+Web-based PostgreSQL database browser written in Go...but modified to deploy Heroku Postgres within Heroku Private Spaces. I recommend you implement proper authentication to this app...don't just use the current method of a CONFIG_VAR for auth. Feel free to use (https://elements.heroku.com/addons/auth0)[Auth0] and configure it to authorize only Heroku-SSO users within your Enterprise Org (PGWeb auth = Auth0 which = Heroku SSO which uses SAML-based) 
 
-[![Release](https://img.shields.io/github/release/sosedoff/pgweb.svg?label=Release)](https://github.com/sosedoff/pgweb/releases)
-[![Linux Build](https://img.shields.io/travis/sosedoff/pgweb.svg?label=Linux)](https://travis-ci.org/sosedoff/pgweb)
-[![Windows Build](https://img.shields.io/appveyor/ci/sosedoff/pgweb/master.svg?label=Windows)](https://ci.appveyor.com/project/sosedoff/pgweb)
+[![Release](https://img.shields.io/github/release/sosedoff/pgweb.svg?label=Release)](https://github.com/baliles/pgweb/releases)
 
 ## Overview
 
-Pgweb is a web-based database browser for PostgreSQL, written in Go and modified to support Heroku Private Postgres DBs. Main idea behind using Go for backend development is to utilize ability of the compiler to produce zero-dependency binaries for 
-multiple platforms. Pgweb was created as an attempt to build very simple and portable application to work with Heroku PostgreSQL Private databases.
+PGWeb is a web-based database browser for PostgreSQL, written in Go and works
+on Heroku Postgres for Common and Private instances. Main idea behind using Go for backend development
+is to utilize ability of the compiler to produce zero-dependency binaries for 
+multiple platforms. PGWeb was created as an attempt to build very simple and portable
+application to work with Heroku PostgreSQL databases.
 
 [See application screenshots](SCREENS.md)
 
 ## Features
 
-- Cross-platform support OSX/Linux/Windows 32/64-bit
+- Cross-platform support OSX/Linux/Windows 32/64-bit (but you're on your own with sosedoff/pgweb as this has only been modified enough to get it running against Heroku Private Spaces Postgres)
 - Simple installation (distributed as a single binary)
 - Zero dependencies
 - Works with PostgreSQL 9.1+
@@ -27,11 +28,11 @@ multiple platforms. Pgweb was created as an attempt to build very simple and por
 - Query history
 - Server bookmarks
 
-Visit [WIKI](https://github.com/sosedoff/pgweb/wiki) for more details
+Visit [WIKI](https://github.com/baliles/pgweb/pgweb/wiki) for more details
 
 ## Demo
 
-Visit https://pgweb-demo.herokuapp.com to see pgweb in action.
+It's kind of hard to let you see it running when it requires a Password to sign in (and no, I'm not providing my demo account :-)
 
 ## Installation
 
@@ -42,47 +43,35 @@ operating systems are available.
 
 ## Usage
 
-Start server:
-
-```
-pgweb
-```
-
-You can also provide connection flags:
-
-```
-pgweb --host localhost --user myuser --db mydb
-```
-
-Connection URL scheme is also supported:
-
-```
-pgweb --url postgres://user:password@host:port/database?sslmode=[mode]
-```
-
-### Multiple database sessions
-
-To enable multiple database sessions in pgweb, start the server with:
-
-```
-pgweb --sessions
-```
-
-Or set environment variable:
-
-```
-SESSIONS=1 pgweb
-```
-
 ## Deploy on Heroku
 
 [![Heroku Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/herokumx/pgweb)
 
+Make sure you have PostgreSQL server running on the same Heroku App that you're deploying this to (you can add Postgres after you've deployed this if you're putting the Cart before the proverbial Horse (ie `yourPrivateSpaces_postgresserver.herokuapp.com:5432)
+
+*Plan Name	Provisioning Name	        Cache Size	Storage Limit	Connection Limit
+Private 0	heroku-postgresql:private-0	1 GB	        64 GB	        120	
+Private 2	heroku-postgresql:private-2	3.5 GB	        256 GB	        400	
+Private 4	heroku-postgresql:private-4	15 GB	        512 GB	        500	
+Private 5	heroku-postgresql:private-5	30 GB	        1 TB	        500	
+Private 6	heroku-postgresql:private-6	60 GB	        1 TB	        500	
+Private 7	heroku-postgresql:private-7	120 GB	        1 TB	        500	
+
+## Configure it for Heroku Private-Postgres
+
+Make sure you've configured (or added manually) the two Heroku Config VARs below: 
+
+AUTH_USER = username (the one you'll use to hit this app, not your Private-Postgres username)
+AUTH_PASS = password (the one you'll use to hit this app, not your Private-Postgres password)
+
+Your Procfile (create blank file called Procfile, no extension) will look like this:
+
+web: pgweb --url=$DATABASE_URL --listen=$PORT --bind=0.0.0.0 --auth-user=$AUTH_USER --auth-pass=$AUTH_PASS
+
 ## Testing
 
-Before running tests, make sure you have PostgreSQL server running on `localhost:5432`
-interface. Also, you must have `postgres` user that could create new databases
-in your local environment. Pgweb server should not be running at the same time.
+Before running tests, make sure you have PostgreSQL server running on the same Heroku App that you're deploying this to (you can add Postgres after you've deployed this if you're putting the Cart before teh proverbial Horse (ie `yourPrivateSpaces_postgresserver.herokuapp.com:5432)
+
 
 Execute test suite:
 
