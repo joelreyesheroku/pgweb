@@ -45,11 +45,11 @@ operating systems are available.
 
 ## Deploy on Heroku
 
-[![Heroku Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/herokumx/pgweb)
+[![Heroku Deploy](https://www.herokucdn.com/deploy/button.svg)(https://heroku.com/deploy?template=https://github.com/herokumx/pgweb)
 
-Make sure you have PostgreSQL server running on the same Heroku App that you're deploying this to (you can add Postgres after you've deployed this if you're putting the Cart before the proverbial Horse (ie `yourPrivateSpaces_postgresserver.herokuapp.com:5432)
+Make sure you have PostgreSQL server running on the same Heroku App that you're deploying this to (you can add Postgres after you've deployed this if you're putting the Cart before the proverbial Horse ie (yourPrivateSpaces_postgresserver.herokuapp.com:5432)
 
-*Plan Name	Provisioning Name	        Cache Size	Storage Limit	Connection Limit
+Plan Name	Provisioning Name	        Cache Size	Storage Limit	Connection Limit
 Private 0	heroku-postgresql:private-0	1 GB	        64 GB	        120	
 Private 2	heroku-postgresql:private-2	3.5 GB	        256 GB	        400	
 Private 4	heroku-postgresql:private-4	15 GB	        512 GB	        500	
@@ -70,34 +70,28 @@ web: pgweb --url=$DATABASE_URL --listen=$PORT --bind=0.0.0.0 --auth-user=$AUTH_U
 
 ## Testing
 
-Before running tests, make sure you have PostgreSQL server running on the same Heroku App that you're deploying this to (you can add Postgres after you've deployed this if you're putting the Cart before teh proverbial Horse (ie `yourPrivateSpaces_postgresserver.herokuapp.com:5432)
+Before running tests, make sure you have PostgreSQL server running on the same Heroku App that you're deploying this to (you can add Postgres after you've deployed this if you're putting the Cart before the proverbial Horse 
 
+For example:
 
-Execute test suite:
-
-```
-make test
-```
-
-If you're using Docker locally, you might also run pgweb test suite against
-all supported PostgreSQL version with a single command:
-
-```
-make test-all
-```
+yourPrivateSpaces_postgresserver.herokuapp.com:5432
 
 ## Contribute
 
 - Fork this repository
 - Create a new feature branch for a new functionality or bugfix
 - Commit your changes
-- Execute test suite
 - Push your code and open a new pull request
-- Use [issues](https://github.com/sosedoff/pgweb/issues) for any questions
-- Check [wiki](https://github.com/sosedoff/pgweb/wiki) for extra documentation
+- Use [issues](https://github.com/herokumx/pgweb/issues) for any questions
+- Check [wiki](https://github.com/herokumx/pgweb/wiki) for extra documentation
 
 ## Contact
 
+**For PGWeb on Heroku Private Spaces, contact
+- David Baliles
+- [david@heroku.com](mailto:david@heroku.com)
+
+**For PGWeb, contact Dan Sosedoff
 - Dan Sosedoff
 - [dan.sosedoff@gmail.com](mailto:dan.sosedoff@gmail.com)
 - [http://twitter.com/sosedoff](http://twitter.com/sosedoff)
