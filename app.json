@@ -1,6 +1,6 @@
 {
 <<<<<<< HEAD
-  "name": "PGWeb for Heroku Private Spaces",
+  "name": "PGWeb Private",
   "description": "A web-based frontend to your Postgres database.",
 =======
   "name": "PGWeb-PS",
