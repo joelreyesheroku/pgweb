@@ -1,6 +1,6 @@
 # PGWeb for Heroku Private Spaces Postgres
 
-Web-based PostgreSQL database browser written in Go...but modified to deploy Heroku Postgres within Heroku Private Spaces. I recommend you implement proper authentication to this app...don't just use the current method of a CONFIG_VAR for auth. Feel free to use (https://elements.heroku.com/addons/auth0)Auth0 and configure it to authorize only Heroku-SSO users within your Enterprise Org (PGWeb auth = Auth0 which = Heroku SSO which uses SAML-based) 
+Web-based PostgreSQL database browser written in Go...but modified to deploy Heroku Postgres within Heroku Private Spaces. I recommend you implement proper authentication to this app...don't just use the current method of a CONFIG_VAR for auth. Feel free to use (https://elements.heroku.com/addons/auth0 "Heroku's Auth0 Add-On") and configure it to authorize only Heroku-SSO users within your Enterprise Org (PGWeb auth = Auth0 which = Heroku SSO which uses SAML-based) 
 
 ## Overview
 
@@ -29,7 +29,7 @@ Visit [WIKI](https://github.com/baliles/pgweb/pgweb/wiki) for more details
 
 ## Installation: Deploy on Heroku to Private Spaces
 
-[![Heroku Deploy][(https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/herokumx/pgweb)
+[![Heroku Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy?template=https://github.com/herokumx/pgweb)
 
 Make sure you have PostgreSQL server running on the same Heroku App that you're deploying this to (you can add Postgres after you've deployed this if you're putting the Cart before the proverbial Horse ie (yourPrivateSpaces_postgresserver.herokuapp.com:5432)
 
