@@ -1,6 +1,9 @@
 # PGWeb for Heroku Private Spaces Postgres
 
-Web-based PostgreSQL database browser written in Go...but modified to deploy Heroku Postgres within Heroku Private Spaces. I recommend you implement proper authentication to this app...don't just use the current method of a CONFIG_VAR for auth. Feel free to use (https://elements.heroku.com/addons/auth0 "Heroku's Auth0 Add-On") and configure it to authorize only Heroku-SSO users within your Enterprise Org (PGWeb auth = Auth0 which = Heroku SSO which uses SAML-based) 
+Web-based PostgreSQL database browser written in Go...but modified to deploy Heroku Postgres within Heroku Private Spaces. I recommend you implement proper authentication to this app...don't just use the current method of a CONFIG_VAR for auth. Feel free to use
+[Heroku's Auth0 Add-On](https://elements.heroku.com/addons/auth0)
+
+and configure it to authorize only Heroku-SSO users within your Enterprise Org (PGWeb auth = Auth0 which = Heroku SSO which uses SAML-based) 
 
 ## Overview
 
