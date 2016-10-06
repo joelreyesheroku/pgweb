@@ -58,6 +58,16 @@ For example:
 
 `yourPrivateSpaces_postgresserver.herokuapp.com:5432`
 
+Then push this to your Heroku app using:
+
+`git add .`
+`git commit -am "Updating PGWeb to be my own"`
+`git push heroku master`
+`heroku open`
+
+You should now be prompted for your `AUTH_USER` and `AUTH_PASS` you configured earlier. Once you provide those, you should see your PGWeb Dashboard and it should be connected to your Heroku Private Spaces-based Private Postgres database
+
+
 ## Contribute
 
 - Fork this repository
