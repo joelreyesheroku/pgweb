@@ -1,6 +1,6 @@
 # pgweb
 
-Web-based PostgreSQL database browser written in Go.
+Web-based PostgreSQL database browser written in Go for Heroku Private Spaces
 
 [![Release](https://img.shields.io/github/release/sosedoff/pgweb.svg?label=Release)](https://github.com/sosedoff/pgweb/releases)
 [![Linux Build](https://img.shields.io/travis/sosedoff/pgweb.svg?label=Linux)](https://travis-ci.org/sosedoff/pgweb)
@@ -8,11 +8,8 @@ Web-based PostgreSQL database browser written in Go.
 
 ## Overview
 
-Pgweb is a web-based database browser for PostgreSQL, written in Go and works
-on OSX, Linux and Windows machines. Main idea behind using Go for backend development
-is to utilize ability of the compiler to produce zero-dependency binaries for 
-multiple platforms. Pgweb was created as an attempt to build very simple and portable
-application to work with local or remote PostgreSQL databases.
+Pgweb is a web-based database browser for PostgreSQL, written in Go and modified to support Heroku Private Postgres DBs. Main idea behind using Go for backend development is to utilize ability of the compiler to produce zero-dependency binaries for 
+multiple platforms. Pgweb was created as an attempt to build very simple and portable application to work with Heroku PostgreSQL Private databases.
 
 [See application screenshots](SCREENS.md)
 
@@ -79,7 +76,7 @@ SESSIONS=1 pgweb
 
 ## Deploy on Heroku
 
-[![Heroku Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/sosedoff/pgweb)
+[![Heroku Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/herokumx/pgweb)
 
 ## Testing
 
