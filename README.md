@@ -1,24 +1,16 @@
-# pgweb
+# PGWeb for Heroku Private Spaces
 
-Web-based PostgreSQL database browser written in Go.
-
-[![Release](https://img.shields.io/github/release/sosedoff/pgweb.svg?label=Release)](https://github.com/sosedoff/pgweb/releases)
-[![Linux Build](https://img.shields.io/travis/sosedoff/pgweb.svg?label=Linux)](https://travis-ci.org/sosedoff/pgweb)
-[![Windows Build](https://img.shields.io/appveyor/ci/sosedoff/pgweb/master.svg?label=Windows)](https://ci.appveyor.com/project/sosedoff/pgweb)
+Web-based PostgreSQL database browser written in Go...but modified to deploy Heroku Postgres within Heroku Private Spaces. I recommend you implement proper authentication to this app...don't just use the current method of a CONFIG_VAR for auth. Feel free to use
+[Heroku's Auth0 Add-On](https://elements.heroku.com/addons/auth0) and configure it to authorize only Heroku-SSO users within your Enterprise Org (PGWeb auth = Auth0 which = Heroku SSO which uses SAML-based) 
 
 ## Overview
 
-Pgweb is a web-based database browser for PostgreSQL, written in Go and works
-on OSX, Linux and Windows machines. Main idea behind using Go for backend development
-is to utilize ability of the compiler to produce zero-dependency binaries for 
-multiple platforms. Pgweb was created as an attempt to build very simple and portable
-application to work with local or remote PostgreSQL databases.
-
-[See application screenshots](SCREENS.md)
+PGWeb is a web-based database browser for PostgreSQL, written in Go and works on Heroku Postgres for Common and Private instances. Main idea behind using Go for backend development is to utilize ability of the compiler to produce zero-dependency binaries for multiple platforms. PGWeb was created as an attempt to build very simple and portable application to work with Heroku PostgreSQL databases.
 
 ## Features
 
-- Cross-platform support OSX/Linux/Windows 32/64-bit
+- Cross-platform support OSX/Linux/Windows 32/64-bit 
+*(but you're on your own with sosedoff/pgweb as this has only been modified enough to get it running against Heroku Private Spaces Postgres)*
 - Simple installation (distributed as a single binary)
 - Zero dependencies
 - Works with PostgreSQL 9.1+
@@ -30,88 +22,69 @@ application to work with local or remote PostgreSQL databases.
 - Query history
 - Server bookmarks
 
-Visit [WIKI](https://github.com/sosedoff/pgweb/wiki) for more details
+## Easy Deploy: 
 
-## Demo
+Simply click the Heroku Button and we'll provision a Heroku Postgres Private-0 database instance and attach it to this app. We will also set a default `AUTH_USER` and `AUTH_PAS`S which you can change through the CONFIG_VAR of the deployed app. 
 
-Visit https://pgweb-demo.herokuapp.com to see pgweb in action.
+[![Heroku Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy?template=https://github.com/herokumx/pgweb)
 
-## Installation
+## Installation: Manual Deploy on Heroku with Private-Postgres
 
-[Precompiled binaries](https://github.com/sosedoff/pgweb/releases) for supported 
-operating systems are available.
+Make sure you have PostgreSQL server running on the same Heroku App that you're deploying this to (you can add Postgres after you've deployed this if you're putting the Cart before the proverbial Horse 
 
-[More installation options](https://github.com/sosedoff/pgweb/wiki/Installation)
+ie. `yourPrivateSpaces_postgresserver.herokuapp.com:5432`
 
-## Usage
+###Postgres for Private Spaces:
 
-Start server:
-
+Provisioning Name	should be one of the following:
 ```
-pgweb
-```
-
-You can also provide connection flags:
-
-```
-pgweb --host localhost --user myuser --db mydb
+- heroku-postgresql:private-0
+- heroku-postgresql:private-2	
+- heroku-postgresql:private-4
+- heroku-postgresql:private-5	
+- heroku-postgresql:private-6
+- heroku-postgresql:private-7	
 ```
 
-Connection URL scheme is also supported:
+## Manual Config for Heroku Private-Postgres
 
-```
-pgweb --url postgres://user:password@host:port/database?sslmode=[mode]
-```
+Make sure you've configured (or added manually) the two Heroku Config VARs below: 
 
-### Multiple database sessions
+`AUTH_USER = username` is the one you'll use to hit this app, not your Private-Postgres username
+`AUTH_PASS = password` is the one you'll use to hit this app, not your Private-Postgres password
 
-To enable multiple database sessions in pgweb, start the server with:
+Your Procfile (create blank file called Procfile, no extension) will look like this:
 
-```
-pgweb --sessions
-```
+`web: pgweb --url=$DATABASE_URL --listen=$PORT --bind=0.0.0.0 --auth-user=$AUTH_USER --auth-pass=$AUTH_PASS`
 
-Or set environment variable:
+## Deploy to Heroku and Test
 
-```
-SESSIONS=1 pgweb
-```
+Publish your modified local code to your Heroku app using:
 
-## Deploy on Heroku
+`git add .`
+`git commit -am "Updating PGWeb to be my own"`
+`git push heroku master`
+`heroku open`
 
-[![Heroku Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/sosedoff/pgweb)
+You should now be prompted for your `AUTH_USER` and `AUTH_PASS` you configured earlier. Once you provide those, you should see your PGWeb Dashboard and it should be connected to your Heroku Private Spaces-based Private Postgres database
 
-## Testing
-
-Before running tests, make sure you have PostgreSQL server running on `localhost:5432`
-interface. Also, you must have `postgres` user that could create new databases
-in your local environment. Pgweb server should not be running at the same time.
-
-Execute test suite:
-
-```
-make test
-```
-
-If you're using Docker locally, you might also run pgweb test suite against
-all supported PostgreSQL version with a single command:
-
-```
-make test-all
-```
 
 ## Contribute
 
 - Fork this repository
 - Create a new feature branch for a new functionality or bugfix
 - Commit your changes
-- Execute test suite
 - Push your code and open a new pull request
-- Use [issues](https://github.com/sosedoff/pgweb/issues) for any questions
-- Check [wiki](https://github.com/sosedoff/pgweb/wiki) for extra documentation
+- Use [issues](https://github.com/herokumx/pgweb/issues) for any questions
+- Check [wiki](https://github.com/herokumx/pgweb/wiki) for extra documentation
 
 ## Contact
 
+For PGWeb on Heroku Private Spaces, contact
+- David Baliles
+- [david@heroku.com](mailto:david@heroku.com)
+
+For PGWeb, contact Dan Sosedoff
 - Dan Sosedoff
 - [dan.sosedoff@gmail.com](mailto:dan.sosedoff@gmail.com)
 - [http://twitter.com/sosedoff](http://twitter.com/sosedoff)

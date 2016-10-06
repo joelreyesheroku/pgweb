@@ -1,8 +1,8 @@
 {
-  "name": "pgweb",
+  "name": "PGWeb for Heroku Private Spaces",
   "description": "A web-based frontend to your Postgres database.",
-  "website": "https://github.com/sosedoff/pgweb",
-  "repository": "https://github.com/sosedoff/pgweb",
+  "website": "https://herokumx.github.io/pgweb/",
+  "repository": "https://github.com/herokumx/pgweb",
   "logo": "https://raw.githubusercontent.com/sosedoff/pgweb/master/static/img/icon.png",
   "success_url": "/",
   "keywords": [
@@ -12,11 +12,11 @@
     "frontend"
   ],
   "addons": [
-    "heroku-postgresql"
+    "heroku-postgresql:private-0"
   ],
   "env": {
     "AUTH_USER": {
-      "description": "A username to log into pgweb.",
+      "description": "A username to log into PGWeb.",
       "value": "admin"
     },
     "AUTH_PASS": {
