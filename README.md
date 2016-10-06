@@ -30,7 +30,9 @@ Simply click the Heroku Button and we'll provision a Heroku Postgres Private-0 d
 
 ## Installation: Manual Deploy on Heroku with Private-Postgres
 
-Make sure you have PostgreSQL server running on the same Heroku App that you're deploying this to (you can add Postgres after you've deployed this if you're putting the Cart before the proverbial Horse ie `yourPrivateSpaces_postgresserver.herokuapp.com:5432`
+Make sure you have PostgreSQL server running on the same Heroku App that you're deploying this to (you can add Postgres after you've deployed this if you're putting the Cart before the proverbial Horse 
+
+ie. `yourPrivateSpaces_postgresserver.herokuapp.com:5432`
 
 ###Postgres for Private Spaces:
 
@@ -57,13 +59,7 @@ Your Procfile (create blank file called Procfile, no extension) will look like t
 
 ## Deploy to Heroku and Test
 
-Before running tests, make sure you have PostgreSQL server running on the same Heroku App that you're deploying this to (you can add Postgres after you've deployed this if you're putting the Cart before the proverbial Horse 
-
-For example:
-
-`yourPrivateSpaces_postgresserver.herokuapp.com:5432`
-
-Then push this to your Heroku app using:
+Publish your modified local code to your Heroku app using:
 
 `git add .`
 `git commit -am "Updating PGWeb to be my own"`
