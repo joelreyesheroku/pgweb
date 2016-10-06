@@ -80,11 +80,11 @@ You should now be prompted for your `AUTH_USER` and `AUTH_PASS` you configured e
 
 ## Contact
 
-**For PGWeb on Heroku Private Spaces, contact
+For PGWeb on Heroku Private Spaces, contact
 - David Baliles
 - [david@heroku.com](mailto:david@heroku.com)
 
-**For PGWeb, contact Dan Sosedoff
+For PGWeb, contact Dan Sosedoff
 - Dan Sosedoff
 - [dan.sosedoff@gmail.com](mailto:dan.sosedoff@gmail.com)
 - [http://twitter.com/sosedoff](http://twitter.com/sosedoff)
