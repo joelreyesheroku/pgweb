@@ -1,8 +1,6 @@
 # PGWeb for Heroku Private Spaces Postgres
 
-Web-based PostgreSQL database browser written in Go...but modified to deploy Heroku Postgres within Heroku Private Spaces. I recommend you implement proper authentication to this app...don't just use the current method of a CONFIG_VAR for auth. Feel free to use [(https://elements.heroku.com/addons/auth0)Auth0] and configure it to authorize only Heroku-SSO users within your Enterprise Org (PGWeb auth = Auth0 which = Heroku SSO which uses SAML-based) 
-
-[![Release](https://img.shields.io/github/release/sosedoff/pgweb.svg?label=Release](https://github.com/baliles/pgweb/releases)
+Web-based PostgreSQL database browser written in Go...but modified to deploy Heroku Postgres within Heroku Private Spaces. I recommend you implement proper authentication to this app...don't just use the current method of a CONFIG_VAR for auth. Feel free to use (https://elements.heroku.com/addons/auth0)Auth0 and configure it to authorize only Heroku-SSO users within your Enterprise Org (PGWeb auth = Auth0 which = Heroku SSO which uses SAML-based) 
 
 ## Overview
 
@@ -15,8 +13,7 @@ application to work with Heroku PostgreSQL databases.
 ## Features
 
 - Cross-platform support OSX/Linux/Windows 32/64-bit 
-*(but you're on your own with sosedoff/pgweb as this has only been modified enough to get it running against Heroku Private Spaces Postgres)
-*
+*(but you're on your own with sosedoff/pgweb as this has only been modified enough to get it running against Heroku Private Spaces Postgres)*
 - Simple installation (distributed as a single binary)
 - Zero dependencies
 - Works with PostgreSQL 9.1+
@@ -30,13 +27,9 @@ application to work with Heroku PostgreSQL databases.
 
 Visit [WIKI](https://github.com/baliles/pgweb/pgweb/wiki) for more details
 
-## Demo
-
-It's kind of hard to let you see it running when it requires a Password to sign in (and no, I'm not providing my demo account :-)
-
 ## Installation: Deploy on Heroku to Private Spaces
 
-[![Heroku Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/herokumx/pgweb)
+[![Heroku Deploy][(https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/herokumx/pgweb)
 
 Make sure you have PostgreSQL server running on the same Heroku App that you're deploying this to (you can add Postgres after you've deployed this if you're putting the Cart before the proverbial Horse ie (yourPrivateSpaces_postgresserver.herokuapp.com:5432)
 
@@ -52,22 +45,21 @@ Private 7	heroku-postgresql:private-7	120 GB	        1 TB	        500
 
 Make sure you've configured (or added manually) the two Heroku Config VARs below: 
 
-```AUTH_USER = username (the one you'll use to hit this app, not your Private-Postgres username)
-AUTH_PASS = password (the one you'll use to hit this app, not your Private-Postgres password)
-```
+`AUTH_USER = username` is the one you'll use to hit this app, not your Private-Postgres username
+`AUTH_PASS = password` is the one you'll use to hit this app, not your Private-Postgres password
 
 Your Procfile (create blank file called Procfile, no extension) will look like this:
 
-```web: pgweb --url=$DATABASE_URL --listen=$PORT --bind=0.0.0.0 --auth-user=$AUTH_USER --auth-pass=$AUTH_PASS
-```
+`web: pgweb --url=$DATABASE_URL --listen=$PORT --bind=0.0.0.0 --auth-user=$AUTH_USER --auth-pass=$AUTH_PASS`
+
 ## Testing
 
 Before running tests, make sure you have PostgreSQL server running on the same Heroku App that you're deploying this to (you can add Postgres after you've deployed this if you're putting the Cart before the proverbial Horse 
 
 For example:
 
-```yourPrivateSpaces_postgresserver.herokuapp.com:5432
-```
+`yourPrivateSpaces_postgresserver.herokuapp.com:5432`
+
 ## Contribute
 
 - Fork this repository
