@@ -26,10 +26,9 @@ PGWeb is a web-based database browser for PostgreSQL, written in Go and works on
 
 Simply click the Heroku Button and we'll provision a Heroku Postgres Private-0 database instance and attach it to this app. We will also set a default `AUTH_USER` and `AUTH_PAS`S which you can change through the CONFIG_VAR of the deployed app. 
 
-**Note:** *after deploying, it will take a few minutes for PGWeb to spin up in the Private Space before it is functional. Don't get too impatient or you'll think the app isn't working. Look at the logs and you'll see once web.1 has spun up and is working*
+**Note:** *After deploying, it will take a few minutes for PGWeb to spin up in the Private Space before it is functional. Don't get too impatient or you'll think the app isn't working. Look at the logs and you'll see once web.1 has spun up and is working*
 
-**Before you click the Heroku Button**
-*Once you've provisioned PGWeb using the Heroku Button (and waited to verify it's running per the above), you'll only see the* `public` *schema when you log in...with some random* `insufficient priviledges` *showing. If you want to see real data, do the following:*
+**Before you click the Heroku Button:** *Once you've provisioned PGWeb using the Heroku Button (and waited to verify it's running per the above), you'll only see the* `public` *schema when you log in...with some random* `insufficient priviledges` *showing. If you want to see real data, do the following:*
 
 ```
 - Add the Heroku Connect Add-On
